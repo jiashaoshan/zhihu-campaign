@@ -1,0 +1,41 @@
+{
+  "$schema": "知乎文章筛选规则",
+  "$version": "1.0.0",
+  "$description": "控制AI四维评分筛选的参数",
+  "scoring": {
+    "heat_weight": {
+      "enabled": true,
+      "weight": 40,
+      "description": "热度得分权重（0-40），基于文章浏览量/关注数",
+      "formula": "min(heat / 10000 * weight, weight)"
+    },
+    "interaction_weight": {
+      "enabled": true,
+      "weight": 30,
+      "description": "互动得分权重（0-30），基于赞同数+评论数",
+      "formula": "min((vote_count + comment_count * 2) / 100 * weight / 30, weight)"
+    },
+    "timeliness_weight": {
+      "enabled": true,
+      "weight": 20,
+      "description": "时效得分权重（0-20），越新越好",
+      "formula": "max(0, weight - max(0, days_old - 30) * weight / 180)"
+    },
+    "quality_weight": {
+      "enabled": true,
+      "weight": 10,
+      "description": "内容质量得分（0-10），基于内容长度和完整性",
+      "formula": "min(len(content) / 200, weight)"
+    }
+  },
+  "filters": {
+    "min_score": 0,
+    "top_n": 10,
+    "max_days_old": 365,
+    "allowed_url_patterns": [
+      "zhuanlan.zhihu.com/p/",
+      "www.zhihu.com/question/",
+      "www.zhihu.com/answer/"
+    ]
+  }
+}

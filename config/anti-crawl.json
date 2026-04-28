@@ -1,0 +1,54 @@
+{
+  "$schema": "反爬策略配置",
+  "$version": "1.0.0",
+  "$description": "控制自动化操作频率和时段，避免触发知乎反爬机制",
+  "time": {
+    "work_hours": {
+      "start": 8,
+      "end": 23,
+      "description": "仅在此时间段内执行自动化操作"
+    },
+    "weekend_enabled": false,
+    "description": "是否在周末执行操作"
+  },
+  "rate_limits": {
+    "daily": {
+      "max_comments": 15,
+      "description": "每日最多评论数"
+    },
+    "hourly": {
+      "max_comments": 5,
+      "description": "每小时最多评论数"
+    },
+    "per_article_author": {
+      "max_comments": 1,
+      "description": "同一作者最多评论文章数"
+    }
+  },
+  "delays": {
+    "between_comments": {
+      "min_seconds": 60,
+      "max_seconds": 180,
+      "description": "评论之间的随机延迟范围（秒）"
+    },
+    "between_searches": {
+      "min_seconds": 5,
+      "max_seconds": 15,
+      "description": "搜索之间的随机延迟范围（秒）"
+    },
+    "between_keywords": {
+      "min_seconds": 10,
+      "max_seconds": 30,
+      "description": "切换关键词之间的随机延迟范围（秒）"
+    }
+  },
+  "retry": {
+    "max_attempts": 3,
+    "base_delay_seconds": 30,
+    "description": "失败重试策略"
+  },
+  "browserwing": {
+    "api_timeout_seconds": 120,
+    "description": "BrowserWing API 调用超时时间"
+  }
+}
