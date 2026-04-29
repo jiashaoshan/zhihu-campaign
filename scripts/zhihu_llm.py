@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 # DeepSeek API 配置
 DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions"
-DEFAULT_MODEL = "deepseek-chat"
+DEFAULT_MODEL = "deepseek-v4-flash"  # V4系列，输出上限384K tokens
 DEFAULT_TIMEOUT = 120
 
 # 尝试从 ~/.openclaw/openclaw.json 读取 deepseek api key
@@ -153,6 +153,7 @@ def call_llm_json(
 ) -> dict:
     """
     调用 LLM 并解析 JSON 响应
+    注意：不使用 response_format 约束（避免截断输出），提示词已要求JSON格式
 
     Returns:
         dict: 解析后的 JSON 对象
@@ -163,7 +164,6 @@ def call_llm_json(
         model=model,
         temperature=temperature,
         max_tokens=max_tokens,
-        response_format={"type": "json_object"},
         timeout=timeout,
     )
 
