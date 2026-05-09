@@ -21,8 +21,8 @@ AI 驱动的知乎获客全自动解决方案。两个核心能力：
 
 | 功能 | 说明 | 关联脚本 | BW 脚本 ID |
 |------|------|----------|------------|
-| 📝 发布文章 | LLM 生成 → 人工确认 → BW 发布 | `zhihu-article-publisher.py` | `8478f76d` |
-| 🎯 评论区获客 | 搜索 → AI评分 → LLM评论 → BW 评论 | `zhihu-comment-acquisition.py` | `dd8a7911`, `f3ac1d6a` |
+| 📝 发布文章 | LLM 生成 → 人工确认 → BW 发布 | `zhihu-article-publisher.py` | `8478f76d-5a6b-4fee-9155-4dbedb3a5aa4` |
+| 🎯 评论区获客 | 搜索 → AI评分 → LLM评论 → BW 评论 | `zhihu-comment-acquisition.py` | `dd8a7911-69b4-409f-aa14-42a7a5aeddc2`, `f3ac1d6a-0489-467f-a0eb-c275faecd839` |
 
 ## 依赖
 
@@ -30,9 +30,9 @@ AI 驱动的知乎获客全自动解决方案。两个核心能力：
 - BrowserWing 服务（默认 `http://127.0.0.1:8080`）
 - DeepSeek API Key（环境变量 `DEEPSEEK_API_KEY`）
 - BrowserWing 注册脚本：
-  - `8478f76d` — 知乎文章发布
-  - `f3ac1d6a` — 知乎文章评论
-  - `dd8a7911` — 当天关键词搜索
+  - `8478f76d-5a6b-4fee-9155-4dbedb3a5aa4` — 知乎文章发布
+  - `f3ac1d6a-0489-467f-a0eb-c275faecd839` — 知乎文章评论
+  - `dd8a7911-69b4-409f-aa14-42a7a5aeddc2` — 当天关键词搜索
 
 ## 快速使用
 
