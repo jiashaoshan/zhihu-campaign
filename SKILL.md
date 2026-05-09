@@ -38,19 +38,19 @@ AI 驱动的知乎获客全自动解决方案。两个核心能力：
 
 ```bash
 # 配置文件
-python3 zhihu-campaign.py --init-config
+python3 scripts/zhihu-campaign.py --init-config
 
 # 测试模式
-python3 zhihu-campaign.py --dry-run --acquire --product-url "https://example.com"
+python3 scripts/zhihu-campaign.py --dry-run --acquire --product-url "https://example.com"
 
 # 发布文章
-python3 zhihu-campaign.py --publish --product-url "https://example.com"
+python3 scripts/zhihu-campaign.py --publish --product-url "https://example.com"
 
 # 评论区获客
-python3 zhihu-campaign.py --acquire --product-url "https://example.com"
+python3 scripts/zhihu-campaign.py --acquire --product-url "https://example.com"
 
 # 完整流程
-python3 zhihu-campaign.py --all --product-url "https://example.com"
+python3 scripts/zhihu-campaign.py --all --product-url "https://example.com"
 ```
 
 ## 文件结构

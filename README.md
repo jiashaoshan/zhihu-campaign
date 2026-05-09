@@ -132,6 +132,8 @@
 
 文章发布时自动从 Pexels （免费图库）搜索与主题相关的图片，下载到本地 `~/zhihu_cover_images/` 目录，作为封面参数传给 BrowserWing 脚本。无需人工干预。
 
+> **注意**：Pexels API Key 已内嵌在代码中（`scripts/zhihu-article-publisher.py` 中的 `PEXELS_API_KEY`），一般无需额外配置。如需使用自己的 Key，可修改该文件。
+
 ### 模块二：评论区获客
 
 **完整流程：**
@@ -177,7 +179,7 @@ LLM动态生成 (10个/次)
 4. **案例分析型** — 用项目案例说明，引出实际效果
 
 评论风格要求：
-- 字数：60-150字
+- 字数：60-200字（代码限制最多200字）
 - 口语化，带语气词（"说实话"、"有一说一"）
 - 含具体数字、时间节点、场景
 - 避免营销腔和排比句
@@ -244,7 +246,7 @@ LLM动态生成 (10个/次)
 |------|------|------|
 | Python | 3.8+ | 运行时环境 |
 | BrowserWing | 最新 | 浏览器自动化服务，运行在 `http://127.0.0.1:8080` |
-| DeepSeek API | - | 内容生成 API |
+| DeepSeek API | - | 内容生成 API（默认模型：`deepseek-v4-flash`） |
 | Pexels API | - | 免费封面图片源（Key 内嵌） |
 
 ### Python 依赖
@@ -293,9 +295,9 @@ export BROWSERWING_EXECUTOR_URL=http://127.0.0.1:8080
 2. 进入 "脚本管理"
 3. 点击 "导入脚本"
 4. 分别导入以下文件：
-   - `bw-scripts/知乎当天的关键词文章列表（前20）.json` → ID: `dd8a7911`
-   - `bw-scripts/知乎文章评论.json` → ID: `f3ac1d6a`
-   - `bw-scripts/知乎发布文章.json` → ID: `8478f76d`
+   - `bw-scripts/知乎当天的关键词文章列表（前20）.json` → ID: `dd8a7911-69b4-409f-aa14-42a7a5aeddc2`
+   - `bw-scripts/知乎文章评论.json` → ID: `f3ac1d6a-0489-467f-a0eb-c275faecd839`
+   - `bw-scripts/知乎发布文章.json` → ID: `8478f76d-5a6b-4fee-9155-4dbedb3a5aa4`
 
 > **注意**：确保 BrowserWing 中知乎账号已登录，脚本才能正常工作。
 
@@ -404,9 +406,9 @@ python3 scripts/zhihu-campaign.py --init-config
 
 | 文件 | 脚本 ID | 功能 | 需要登录 |
 |------|---------|------|---------|
-| `bw-scripts/知乎当天的关键词文章列表（前20）.json` | `dd8a7911` | 搜索当天知乎文章（按关键词，取前20条） | ✅ |
-| `bw-scripts/知乎文章评论.json` | `f3ac1d6a` | 对指定知乎文章发表评论 | ✅ |
-| `bw-scripts/知乎发布文章.json` | `8478f76d` | 在知乎发布带封面的长文 | ✅ |
+| `bw-scripts/知乎当天的关键词文章列表（前20）.json` | `dd8a7911-69b4-409f-aa14-42a7a5aeddc2` | 搜索当天知乎文章（按关键词，取前20条） | ✅ |
+| `bw-scripts/知乎文章评论.json` | `f3ac1d6a-0489-467f-a0eb-c275faecd839` | 对指定知乎文章发表评论 | ✅ |
+| `bw-scripts/知乎发布文章.json` | `8478f76d-5a6b-4fee-9155-4dbedb3a5aa4` | 在知乎发布带封面的长文 | ✅ |
 
 ### 脚本调用方式
 
